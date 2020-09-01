@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="navegarHome()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="avatar-container">
+    <ion-avatar class="contact-avatar">
+      <img src="assets/avatar-default.jpg">
+    </ion-avatar>
+  </div>
+
+  <div class="info-container">
+
+    <h2 class="title-name">{{contacto.nombre}} {{contacto.apellido}}</h2>
+
+    <div class="content-name">
+      <ion-item>
+        <ion-label>
+          <h2>{{contacto.telefono}}</h2>
+          <p>Movil</p>
+        </ion-label>
+        <ion-icon name="call-outline" slot="end"></ion-icon>
+      </ion-item>
+    </div>
+
+  </div>
+
+  <ion-button (click)="navegarEditarContacto()" class="button-edit-contact" color="primary" shape="round">
+    <ion-icon name="create-outline"></ion-icon>
+    &nbsp; Editar 
+  </ion-button>
+
+  <ion-button (click)="buttonBorrarContacto()" class="button-delete-contact" color="danger" shape="round">
+    <ion-icon name="close-circle-outline"></ion-icon>
+    &nbsp; Borrar 
+  </ion-button>
+</ion-content>

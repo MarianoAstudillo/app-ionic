@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <form>
+        <ion-searchbar (search)="buscarContacto($event.target.value)"
+                       (ionBlur)="resetContactos($event)" 
+                       (ionCancel)="resetContactos($event)"
+                       class="searchbar" placeholder="Buscar..."></ion-searchbar>
+      </form>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Mis contactos</h1>
+
+  <div *ngIf="filtrados == null">
+    <app-contact  *ngFor="let contacto of contactos" [contacto]="contacto" (click)="navegaContacto(contacto)"></app-contact>
+  </div>
+
+  <div *ngIf="filtrados != null">
+    <app-contact  *ngFor="let contacto of filtrados" [contacto]="contacto" (click)="navegaContacto(contacto)"></app-contact>
+  </div>
+  
+  <ion-button (click)="navegarNuevoContacto()" class="button-new-contact" color="primary" shape="round">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    &nbsp; Agregar
+  </ion-button>
+</ion-content>

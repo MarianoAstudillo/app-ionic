@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="avatar-container">
+    <ion-avatar  class="contact-avatar">
+      <img *ngIf="base64image == null" src="assets/avatar-default.jpg">
+      <img *ngIf="base64image != null" [src]="this.domSanitizer.bypassSecurityTrustResourceUrl(base64image)">
+      <ion-icon (click)="editarFotoContacto()" class="photo-edit-icon" name="camera-outline"></ion-icon>
+    </ion-avatar>
+  </div>
+
+  <form [formGroup]="formNuevoContacto" (ngSubmit)="submitForm()">
+
+    <ion-list class="list-info-contact">
+
+        <ion-item>
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input formControlName="nombre" name="nombre" type="text"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label position="stacked">Apellido</ion-label>
+            <ion-input formControlName="apellido" name="apellido" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input formControlName="telefono" name="telefono" type="tel"></ion-input>
+        </ion-item>
+
+        <ion-button class="button-save" type="submit" color="primary" expand="full">
+          <ion-icon class="icon-save" name="save-outline"></ion-icon>
+          &nbsp;Guardar
+        </ion-button>
+
+    </ion-list>
+
+
+  </form>
+
+</ion-content>

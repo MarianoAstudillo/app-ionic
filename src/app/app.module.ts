@@ -9,17 +9,28 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { Camera } from '@ionic-native/camera/ngx';
+
+import { File } from '@ionic-native/file/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
